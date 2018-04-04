@@ -5,7 +5,7 @@
  */
 package zaje1zad1;
 
-import static java.lang.Math.abs;
+import static java.lang.Math.abs;//wartość bezwględna
 import java.util.Random;
 
 /**

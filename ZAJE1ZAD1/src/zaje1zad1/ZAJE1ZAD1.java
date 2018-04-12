@@ -28,16 +28,21 @@ public class ZAJE1ZAD1 {
      */
     public static void main(String[] args) {
         Random r = new Random();
-        int ilofib1 = 0, ilofib2 = 0, fibiloczyn;
+        int ilofib1 = 0, ilofib2 = 0, fibiloczyn,licznik=0;
         double srednia, suma = 0, i, ile = 0, max = -49, min = 100;
         do {
+            licznik++;
             i = r.nextInt(150) - 49;//[-49,100]
             System.out.println(i);
 
             if (i > max) {
                 ilofib2 = (int) max;
-                max = i;
-            } else if (i < min) {
+                max = i;}
+            else if(i<max && ilofib2<i)
+            {
+                ilofib2=(int)i;
+            }
+            if (i < min) {
                 min = i;
             }
             if (i % 2 == 0 && i > 0) {
@@ -59,7 +64,7 @@ public class ZAJE1ZAD1 {
         } else {
             System.out.println("Nie da się policzyć średniej");
         }
-
+        if(licznik>1){        
         System.out.println("MAX: " + max);
         System.out.println("MIN: " + min);
         System.out.println("Ciąg liczb fibbonaciego: ");
@@ -75,6 +80,7 @@ public class ZAJE1ZAD1 {
         } else {
             System.out.println("0");
         }
+        }else System.out.println("Jedyną wylosowaną liczbą jest 0");
     }
 
 }

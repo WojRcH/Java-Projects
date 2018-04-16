@@ -38,6 +38,9 @@ public class Zaj2Zad2 {
 //        String zdanie=s.nextLine();       
         String zdanie="Ala ma kot a kot ma a Ala kot a a";
         String[][]tab;
+        for(int i =0;.length<i;i++)
+        {
+        }
         System.out.println("Podaj frazę do znalezienia: ");
         String fraza=s.nextLine();
         

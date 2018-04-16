@@ -24,11 +24,16 @@ public class Zaj2Zad3 {
     public static String[] split2(String str, String[] tstr) {
 
         String lancuchznak[];
+        
+        
         return lancuchznak[];
     }
 
     public static void main(String[] args) {
         // TODO code application logic here
+        String [] splitznaki={"a","o"};
+        String lancuch="Ala ma kota zato olaf po obiedzie gra w bierki";
+        System.out.println(split2(lancuch,splitznaki));
     }
 
 }

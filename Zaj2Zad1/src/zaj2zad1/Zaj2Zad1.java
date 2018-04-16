@@ -6,6 +6,7 @@
 package zaj2zad1;
 
 import java.util.Random;
+import java.util.Scanner;
 
 /**
  *
@@ -25,12 +26,51 @@ public class Zaj2Zad1 {
      */
     public static void main(String[] args) {
         Random r = new Random();
-        int roz;
+        int roz, los, liczbkom = 0;
+        Scanner in = new Scanner(System.in);
         do {
-            roz = r.nextInt(51) + 50;
+            roz = r.nextInt(51) + 50;//rozmiar tablicy
         } while (roz % 4 != 0);
+        System.out.println("Podaj zakres losowania liczb: ");
+        int zak1 = in.nextInt();
+        int zak2 = in.nextInt();
+        roz = 4;
+        int[][] tab1 = new int[roz][roz];//przypisz rozmiar
+        for (int i = 0; i < tab1.length; i++) {
+            for (int j = 0; j < tab1[i].length; j++) {
+                tab1[i][j] = r.nextInt((zak2 - zak1) + 1) + zak1;
+            }
+        }
+        for (int i = 0; i < tab1.length; i++) {
+            for (int j = 0; j < tab1[i].length; j++) {
+                if (i == j || i + j + 1 == roz) {//2 przekątne
+                    los = r.nextInt(4);
+                    if (los == 0)//do poprawy
+                    {
+                        tab1[i][j] = -1;
+                    } else {
+                        tab1[i][j] = 1;
+                    }
+                }
+                if (tab1[i][j] < i * j) {
+                    liczbkom++;
+                }
 
-        int[][] tab1 = new int[roz][roz];
+            }
+        }
+        for (int[] x : tab1) {//foreach 2-wymiary
+            for (int y : x) {
+                System.out.print(y);
+            }
+            System.out.println();
+
+        }
+        System.out.println("Liczba komórek o wartości mniejszej od iloczynu wiersza i kolumny: "+liczbkom );
     }
 
 }
+//00  01  02 03 04
+//10  11  12 13 14
+//20  21  22 23 24
+//30  31  32 33 34
+//40  41  42 43 44

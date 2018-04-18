@@ -24,7 +24,7 @@ public class Zaj2Zad3 {
     public static String[] split2(String str, String[] tstr) {
 
         String lancuchznak[];
-        
+        for(int i=0;)
         
         return lancuchznak[];
     }

@@ -6,6 +6,8 @@
 package zaj2zad2;
 
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  *
@@ -23,27 +25,38 @@ public class Zaj2Zad2 {
     /**
      * @param tab
      * @param fraza
-     * @return 
+     * @return
      */
-    public static int ile_wystapien(String[][]tab,String fraza)
-    {
-        int ilosc_wyst=0;
-        
-        
-        return ilosc_wyst;    
-    }
-    public static void main(String[] args) {
-        Scanner s=new Scanner(System.in);
-//        System.out.println("Podaj zdania do sprawdzenia: ");        
-//        String zdanie=s.nextLine();       
-        String zdanie="Ala ma kot a kot ma a Ala kot a a";
-        String[][]tab;
-        for(int i =0;.length<i;i++)
-        {
+    public static int ile_wystapien(String[][] tab, String fraza) {
+        int ilosc_wyst = 0;        
+//        Pattern patt=Pattern.compile(fraza);
+//        Matcher match;
+        for (int i = 0; i < tab.length; i++) {
+            for (int j = 0; j < tab[i].length; j++) {   
+//                match=patt.matcher(tab[i][j]) ;//próby z find, lookingAt i contains
+                if(tab[i][j].matches("(.*)"+fraza+"(.*)"))
+                {
+                    ilosc_wyst++;
+                    
+                }
+            }
+
         }
-        System.out.println("Podaj frazę do znalezienia: ");
-        String fraza=s.nextLine();
-        
+
+        return ilosc_wyst;
     }
-    
+
+    public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
+//        System.out.println("Podaj zdania do sprawdzenia: ");        
+//        String zdanie=s.nextLine();     
+
+        String[][] tab = {{"Ala ma kot kot kot"}, {"a kot", "ma", "a", "Ala kot"}};
+
+        System.out.println("Podaj frazę do znalezienia: ");
+        String fraza = s.nextLine();
+        System.out.println(ile_wystapien(tab, fraza));
+
+    }
+
 }

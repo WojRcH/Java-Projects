@@ -31,12 +31,17 @@ public class Zaj2Zad2 {
         int ilosc_wyst = 0;
 //        Pattern patt=Pattern.compile(fraza);
 //        Matcher match;
+        int licz;
         for (int i = 0; i < tab.length; i++) {
             for (int j = 0; j < tab[i].length; j++) {
-//                match=patt.matcher(tab[i][j]) ;//próby z find, lookingAt i contains
-                if (tab[i][j].matches("(.*)" + fraza + "(.*)")) {
+//                match=patt.matcher(tab[i][j]) ; próby z find, lookingAt i contains
+                //if (tab[i][j].matches("(.*)" +fraza + "(.*)"))
+                licz = 0;
+                while (tab[i][j].indexOf(fraza, licz) > -1) {
                     ilosc_wyst++;
+                    licz = tab[i][j].indexOf(fraza, licz) + 1;
                 }
+
             }
 
         }
@@ -60,7 +65,8 @@ public class Zaj2Zad2 {
             for (int j = 0; j < tab[i].length; j++) {
                 dlsred += tab[i][j].length();
                 iloscsred++;
-                if (j % 5 == 0 ) {//podzielne przez 5 i niepodzielne przez III-ci parametr funkcji ???? && j%ile_wystapien(tab, fraza)!=0 
+                int a=3;// III parametr funkcji (przykładowy)
+                if (j % 5 == 0 && j%a!=0) {//podzielne przez 5 i niepodzielne przez III-ci parametr funkcji ???? && j%ile_wystapien(tab, fraza)!=0 
                     if (tab[i][j].length() < 3) {
                         lancuchkonk = lancuchkonk.concat(tab[i][j]);
                     } else {

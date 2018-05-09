@@ -19,21 +19,41 @@ public class Zaj2Zad3 {
     /**
      * @param str
      * @param tstr
-     * @return 
+     * @return
      */
     public static String[] split2(String str, String[] tstr) {
+        int roz = 0;
+        for (int i = 0; i < str.length(); i++) {
+            for (int j = 0; i < tstr.length; j++) {
+                if (str.charAt(i) == tstr[j].charAt(i)) {
+                    roz++;
+                }
+            }
 
-        String lancuchznak[];
-        for(int i=0;)
-        
-        return lancuchznak[];
+        }
+        String[] tablicawypis = new String[roz + 1];
+        for (int i = 0; i < tablicawypis.length; i++) {
+            for (int j = 0; j < str.length(); j++) {
+                for (int k = 0; k < tstr.length; k++) {
+                    if (str.charAt(i) == tstr[j].charAt(i)) {
+                        tablicawypis[i]+= str.charAt(i);
+                    }
+                }
+
+            }
+
+        }
+      
+       return tablicawypis;
     }
 
     public static void main(String[] args) {
         // TODO code application logic here
-        String [] splitznaki={"a","o"};
-        String lancuch="Ala ma kota zato olaf po obiedzie gra w bierki";
-        System.out.println(split2(lancuch,splitznaki));
+        String[] splitznaki = {"a", "o"};
+        String[]tablicawyjsc=new String[40];
+        String lancuch = "Ala ma kota zato olaf po obiedzie gra w bierki";
+        tablicawyjsc=split2(lancuch, splitznaki);
+        
     }
 
 }

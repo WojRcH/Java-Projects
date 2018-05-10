@@ -26,11 +26,13 @@ public class Zaj3Zad5 {
      */
     static void sortuj(String s) {
         String[] tabsplit = s.split(" ");
-        String[] tabwyjsc = new String[20];
-        for (int i = 0; i < tabsplit.length; i++) {
+        String[] tabwyjsc = new String[tabsplit.length];
+        for (int i = 0; i < tabsplit.length-1; i++) {
             for (int j = 0; j < tabsplit[j].length(); j++) {
-                if (tabsplit[j].charAt(j) > tabwyjsc[j].charAt(j)) {
-                    tabwyjsc[j] = tabsplit[j];
+                if (tabsplit[i].charAt(j) > tabsplit[i+1].charAt(j)) {
+                    String tmp = tabsplit[i];
+                    tabsplit[i] = tabsplit[i+1];
+                    tabsplit[i+1] = tmp;
                 }
             }
 

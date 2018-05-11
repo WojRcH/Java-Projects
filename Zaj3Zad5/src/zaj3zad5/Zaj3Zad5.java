@@ -24,25 +24,65 @@ public class Zaj3Zad5 {
     /**
      * @param args the command line arguments
      */
+    static boolean porstring(String str1, String str2) {
+        int ascii = 0;
+        char znak1 = 0, znak2 = 0;
+        for (int i = 0; i < str1.length() && i < str2.length(); i++) {
+            if (str1.charAt(i) < 97) {//zmiana z dużej litery na małą
+                ascii = str1.charAt(i) + 32;
+                znak1 = (char) ascii;
+            } else {
+                znak1 = str1.charAt(i);
+            }
+            if (str2.charAt(i) < 97) {
+                ascii = str2.charAt(i) + 32;
+                znak2 = (char) ascii;
+
+            } else {
+                znak2 = str2.charAt(i);
+            }
+            if (znak1 > znak2) {
+                return true;
+            } else if (znak1 < znak2) {
+                return false;
+            }
+        }
+        if (str1.length() > str2.length()) {
+            return true;
+        }
+        return false;
+    }
+
     static void sortuj(String s) {
+        double dl, il, srednia;
+        String tmp = "";
         String[] tabsplit = s.split(" ");
-        String[] tabwyjsc = new String[tabsplit.length];
-        for (int i = 0; i < tabsplit.length-1; i++) {
-            for (int j = 0; j < tabsplit[j].length(); j++) {
-                if (tabsplit[i].charAt(j) > tabsplit[i+1].charAt(j)) {
-                    String tmp = tabsplit[i];
-                    tabsplit[i] = tabsplit[i+1];
-                    tabsplit[i+1] = tmp;
+        for (int i = 0; i < tabsplit.length; i++) {
+            for (int j = 0; j < tabsplit.length - 1; j++) {
+                if (porstring(tabsplit[j], tabsplit[j + 1])) {
+                    tmp = tabsplit[j];
+                    tabsplit[j] = tabsplit[j + 1];
+                    tabsplit[j + 1] = tmp;
                 }
             }
 
         }
-        System.out.println();
+        System.out.print("'");
+        for (String x : tabsplit) {
+            System.out.print(x + " ");
+        }
+        System.out.print("' ");
+        dl = s.length() - (tabsplit.length - 1);//liczy też przecinek
+        il = tabsplit.length;
+        srednia = dl / il;
+        System.out.println(srednia);
 
     }
 
     public static void main(String[] args) {
-        sortuj("ala ma kota i dwie agrafki");
+        sortuj("Aleksandra Joanna, Agnieszka");
+        sortuj("Ala ma kota i dwie agrafki");
+
     }
 
 }

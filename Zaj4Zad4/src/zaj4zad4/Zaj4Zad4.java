@@ -26,6 +26,14 @@ public class Zaj4Zad4 {
     /**
      * @param args the command line arguments
      */
+    void szyfruj(String nazwaWe, int przesun)
+    {
+        
+    }
+    void deszyfruj(String nazwaWe, int przesun)
+    {
+        
+    }
     public static void main(String[] args) {
         // TODO code application logic here
     }

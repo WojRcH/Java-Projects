@@ -52,8 +52,8 @@ public class Zaj4Zad1 {
             tab[2] = liczslow;
             return tab;
 
-        } catch (ArrayIndexOutOfBoundsException e) {
-            System.out.println(e);
+        } catch (FileNotFoundException ex) {
+            System.out.println(ex);
         } finally {
             if (plik != null) {
                 plik.close();

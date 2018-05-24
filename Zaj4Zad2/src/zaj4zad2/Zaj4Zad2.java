@@ -46,18 +46,17 @@ public class Zaj4Zad2 {
             while ((linia = br.readLine()) != null) {
 
                 //System.out.println(linia);
-                if (linia.contains(slowo)) {                   
-                    pw.print(liczwierszow+": "+linia + "\n");
+                if (linia.contains(slowo)) {
+                    pw.print(liczwierszow + ": " + linia + "\n");
                 }
                 liczwierszow++;
-                
+
             }
-           
 
         } catch (FileNotFoundException ex) {
             System.out.println(ex);
         } finally {
-            if (pw!= null) {
+            if (pw != null) {
                 pw.close();
             }
         }
